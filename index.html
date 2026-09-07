@@ -15,47 +15,62 @@
   *{box-sizing:border-box;}
   body{
     margin:0; background:var(--paper); color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif; font-size:16px; line-height:1.6;
+    font-family:'IBM Plex Sans', sans-serif; font-size:16px; line-height:1.7;
     -webkit-font-smoothing:antialiased;
   }
   a{color:inherit;}
 
-  nav{padding:22px 32px; border-bottom:1px solid var(--line);}
+  nav{padding:26px 32px; border-bottom:1px solid var(--line);}
   .wordmark{font-family:'IBM Plex Mono', monospace; font-size:15px; font-weight:500;
-    display:flex; align-items:center; gap:8px; max-width:720px; margin:0 auto;}
+    display:flex; align-items:center; gap:8px; max-width:680px; margin:0 auto;}
   .wordmark .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);display:inline-block;}
 
-  .content{max-width:720px; margin:0 auto; padding:0 32px;}
+  .content{max-width:680px; margin:0 auto; padding:0 32px;}
 
-  .hero{padding:64px 0 48px;}
+  .hero{padding:72px 0 16px;}
   .hero h1{
-    font-family:'Source Serif 4', serif; font-weight:500; font-size:32px;
-    line-height:1.3; margin:0 0 16px; letter-spacing:-0.01em;
+    font-family:'Source Serif 4', serif; font-weight:500; font-size:27px;
+    line-height:1.45; margin:0 0 26px; letter-spacing:-0.01em;
   }
-  .hero p{font-size:16px; color:var(--ink-soft); margin:0; max-width:52ch;}
+  .hero p{font-size:16px; color:var(--ink-soft); margin:0 0 16px;}
+  .hero p:last-child{margin-bottom:0;}
 
-  .specs{border-top:1px solid var(--line);}
-  .spec-row{
-    display:grid; grid-template-columns:150px 1fr; gap:24px;
-    padding:26px 0; border-bottom:1px solid var(--line);
+  .beta-note{
+    margin:36px 0 8px; padding:20px 22px; border:1px solid var(--line); border-radius:6px;
+    background:rgba(14,110,102,0.05);
   }
-  .spec-row .term{
-    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--signal);
-    padding-top:2px;
+  .beta-note .tag{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--signal); display:block; margin-bottom:10px;}
+  .beta-note p{font-size:13.5px; color:var(--ink-soft); margin:0 0 10px;}
+  .beta-note p:last-child{margin-bottom:0;}
+  .beta-note .niches{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0;}
+  .beta-note .niche{font-size:13px;}
+  .beta-note .niche .h{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--ink); display:block; margin-bottom:4px;}
+  .beta-note .niche .i{color:var(--ink-soft);}
+
+  article{padding:48px 0; border-top:1px solid var(--line);}
+  article h2{
+    font-family:'Source Serif 4', serif; font-weight:500; font-size:20px; margin:0 0 18px;
   }
-  .spec-row .def h3{
-    font-family:'Source Serif 4', serif; font-weight:500; font-size:18px; margin:0 0 6px;
-  }
-  .spec-row .def p{font-size:14.5px; color:var(--ink-soft); margin:0 0 6px;}
-  .spec-row .def p:last-child{margin-bottom:0;}
+  article p{font-size:15px; color:var(--ink-soft); margin:0 0 16px;}
+  article p:last-child{margin-bottom:0;}
+  article p strong{color:var(--ink); font-weight:500;}
+
+  .diagram{margin:22px 0; padding:24px; background:rgba(0,0,0,0.02); border:1px solid var(--line); border-radius:6px;}
+  .diagram svg{width:100%; height:auto; display:block; max-width:400px; margin:0 auto;}
+  .diagram-note{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:12px; font-family:'IBM Plex Mono', monospace;}
 
   .example{
-    margin-top:10px; padding:14px 16px; background:rgba(0,0,0,0.02);
+    margin:16px 0; padding:16px 18px; background:rgba(0,0,0,0.02);
     border-left:2px solid var(--line); font-size:13.5px; color:var(--ink-soft);
   }
-  .example .who{font-family:'IBM Plex Mono', monospace; font-size:10.5px; margin-bottom:6px; display:block;}
+  .example .who{font-family:'IBM Plex Mono', monospace; font-size:10px; margin-bottom:6px; display:block;}
 
-  .actions{padding:40px 0 64px; display:flex; gap:14px;}
+  .boundary{
+    margin-top:16px; font-size:13px; color:var(--ink-soft);
+    border-left:2px solid var(--signal); padding-left:14px;
+  }
+
+  .actions{padding:44px 0 64px; display:flex; gap:14px;}
   .btn{
     display:inline-block; padding:11px 18px; border-radius:var(--radius);
     text-decoration:none; font-size:14px; font-weight:500;
@@ -63,12 +78,11 @@
   .btn-primary{background:var(--ink); color:var(--paper);}
   .btn-secondary{border:1px solid var(--line); color:var(--ink);}
 
-  footer{padding:24px 0 32px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft);
-    display:flex; justify-content:space-between; max-width:720px; margin:0 auto; padding-left:32px; padding-right:32px;}
+  footer{padding:28px 0 36px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft);
+    display:flex; justify-content:space-between; max-width:680px; margin:0 auto; padding-left:32px; padding-right:32px;}
 
   @media (max-width:600px){
-    .spec-row{grid-template-columns:1fr;}
-    .spec-row .term{padding-top:0;}
+    .beta-note .niches{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -81,54 +95,93 @@
 <div class="content">
 
   <div class="hero">
-    <h1>Cohort is a review platform.</h1>
-    <p>Members write reviews, read them in full, and reply directly to their authors.</p>
-  </div>
+    <h1>Cohort is an in-depth, long-term review platform for consumer products and services.</h1>
+    <p>You write about the things you own and the services you use. You can come back and add to what you wrote later. Other members can ask you directly about it, and you can answer.</p>
+    <p>No advertising.</p>
 
-  <div class="specs">
-
-    <div class="spec-row">
-      <div class="term">entries</div>
-      <div class="def">
-        <h3>No length limit. No format limit.</h3>
-        <p>Text, photos, video. Written once, or extended later — an entry keeps its history rather than resetting.</p>
-        <p>A single object can carry more than one independent entry.</p>
-      </div>
-    </div>
-
-    <div class="spec-row">
-      <div class="term">interaction</div>
-      <div class="def">
-        <h3>Replies are attached to the entry, not to a separate thread.</h3>
-        <p>Any member can reply to an entry. The author can reply back.</p>
-        <div class="example">
-          <span class="who">entry — running shoes, size 49.5, 8 months</span>
-          "Sole held up fine, toe box felt tight from day one."<br><br>
-          <span class="who">reply</span>
-          "Same size — did you size up, or return them?"<br><br>
-          <span class="who">reply from author</span>
-          "Sized up half a size. Still using them, 3 months on."
+    <div class="beta-note">
+      <span class="tag">early beta</span>
+      <p>This is a beta. What's open for testing today is narrow, and it isn't the intended scope of the product — just what's live right now.</p>
+      <div class="niches">
+        <div class="niche">
+          <span class="h">products</span>
+          <span class="i">Hiking and outdoor gear.<br>Portable and nomadic tech.</span>
+        </div>
+        <div class="niche">
+          <span class="h">services</span>
+          <span class="i">Garages and auto repair.<br>Parcel relay points and courier counters.</span>
         </div>
       </div>
     </div>
-
-    <div class="spec-row">
-      <div class="term">granularity</div>
-      <div class="def">
-        <h3>An entry can target a business, or a specific person within it.</h3>
-        <p>The two are recorded separately.</p>
-      </div>
-    </div>
-
-    <div class="spec-row">
-      <div class="term">membership</div>
-      <div class="def">
-        <h3>€2/month.</h3>
-        <p>Required to write, to read entries in full, and to reply. No advertising.</p>
-      </div>
-    </div>
-
   </div>
+
+  <article>
+    <h2>Writing a review</h2>
+    <p>There's no length limit and no fixed format. Some entries are a paragraph, some are much longer, and you can add photos or video alongside the writing. You can also attach supporting documents — a photo or PDF of a receipt, a warranty, that kind of thing.</p>
+    <p>An entry doesn't have to be finished the day you write it. You can extend the same entry later — <strong>compare a newer version of something against an older one</strong>, the way you might set this year's model against last year's. Or you can add dated notes as things happen, more like a running log than a rewritten entry — useful for a service you deal with repeatedly, where there isn't really a "version" to compare, just how it's been lately.</p>
+    <div class="example">
+      <span class="who">versioning — a product</span>
+      "This year's jacket lost the inner zip pocket the 2013 version had."
+    </div>
+    <div class="example">
+      <span class="who">journaling — a service</span>
+      "Sept: quick, no line. Nov: same counter, new clerk, much slower."
+    </div>
+  </article>
+
+  <article>
+    <h2>Talking to a reviewer</h2>
+    <p>If an entry doesn't answer something you need to know, you can ask the person who wrote it. For now, that exchange stays between the two of you — it isn't opened up into a wider public thread.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="15" width="150" height="46" rx="3" fill="none" stroke="#4A524F" stroke-width="1.3"/>
+        <text x="85" y="43" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1C2321">reader</text>
+        <rect x="260" y="15" width="150" height="46" rx="3" fill="none" stroke="#0E6E66" stroke-width="1.3"/>
+        <text x="335" y="43" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1C2321">reviewer</text>
+        <line x1="160" y1="30" x2="258" y2="30" stroke="#4A524F" stroke-width="1.2" marker-end="url(#arrow1)"/>
+        <text x="209" y="20" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="10.5" fill="#4A524F">asks</text>
+        <line x1="258" y1="48" x2="160" y2="48" stroke="#0E6E66" stroke-width="1.2" marker-end="url(#arrow2)"/>
+        <text x="209" y="66" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="10.5" fill="#0E6E66">replies</text>
+        <defs>
+          <marker id="arrow1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4A524F"/></marker>
+          <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0E6E66"/></marker>
+        </defs>
+      </svg>
+      <div class="diagram-note">reader ↔ reviewer — no wider thread yet</div>
+    </div>
+    <div class="example">
+      <span class="who">entry — running shoes, size 49.5, 8 months</span>
+      "Sole held up fine, toe box felt tight from day one."<br><br>
+      <span class="who">reader asks</span>
+      "Same size — did you size up, or return them?"<br><br>
+      <span class="who">reviewer replies</span>
+      "Sized up half a size. Still using them, 3 months on."
+    </div>
+  </article>
+
+  <article>
+    <h2>One business, different people</h2>
+    <p>A garage, a shop, a relay counter usually isn't uniformly good or bad — it's rarely everyone's fault, or everyone's credit. You can write an entry about the business as a whole, and separately, about a specific person you dealt with there.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="12" width="185" height="46" rx="3" fill="none" stroke="#4A524F" stroke-width="1.3"/>
+        <text x="102" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1C2321">the business</text>
+        <rect x="225" y="12" width="185" height="46" rx="3" fill="none" stroke="#0E6E66" stroke-width="1.3"/>
+        <text x="317" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1C2321">a person there</text>
+        <text x="210" y="90" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#4A524F">recorded separately</text>
+      </svg>
+    </div>
+    <div class="example">
+      <span class="who">example</span>
+      "The garage overcharged me on parts. Ask for Karim if you go — he's the one who actually knows what he's doing."
+    </div>
+    <div class="boundary">First name only. No photos, no last names. Enough to point someone in the right direction — not enough to identify or target an individual.</div>
+  </article>
+
+  <article>
+    <h2>Membership</h2>
+    <p>€2/month. It's what lets you write, read entries in full, and ask a reviewer directly. There's no advertising on Cohort, and there won't be.</p>
+  </article>
 
   <div class="actions">
     <a class="btn btn-primary" href="#">Write a review</a>
@@ -139,7 +192,7 @@
 
 <footer>
   <span>cohort.reviews</span>
-  <span>Draft v6</span>
+  <span>Draft v9</span>
 </footer>
 
 </body>
