@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cohort.reviews</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F6F5F2; --ink: #1C2321; --ink-soft: #4A524F;
+    --line: #D8D4CB; --signal: #0E6E66; --radius: 3px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif; font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  nav{padding:22px 32px; border-bottom:1px solid var(--line);}
+  .wordmark{font-family:'IBM Plex Mono', monospace; font-size:15px; font-weight:500;
+    display:flex; align-items:center; gap:8px; max-width:720px; margin:0 auto;}
+  .wordmark .dot{width:6px;height:6px;border-radius:50%;background:var(--signal);display:inline-block;}
+
+  .content{max-width:720px; margin:0 auto; padding:0 32px;}
+
+  .hero{padding:64px 0 48px;}
+  .hero h1{
+    font-family:'Source Serif 4', serif; font-weight:500; font-size:32px;
+    line-height:1.3; margin:0 0 16px; letter-spacing:-0.01em;
+  }
+  .hero p{font-size:16px; color:var(--ink-soft); margin:0; max-width:52ch;}
+
+  .specs{border-top:1px solid var(--line);}
+  .spec-row{
+    display:grid; grid-template-columns:150px 1fr; gap:24px;
+    padding:26px 0; border-bottom:1px solid var(--line);
+  }
+  .spec-row .term{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--signal);
+    padding-top:2px;
+  }
+  .spec-row .def h3{
+    font-family:'Source Serif 4', serif; font-weight:500; font-size:18px; margin:0 0 6px;
+  }
+  .spec-row .def p{font-size:14.5px; color:var(--ink-soft); margin:0 0 6px;}
+  .spec-row .def p:last-child{margin-bottom:0;}
+
+  .example{
+    margin-top:10px; padding:14px 16px; background:rgba(0,0,0,0.02);
+    border-left:2px solid var(--line); font-size:13.5px; color:var(--ink-soft);
+  }
+  .example .who{font-family:'IBM Plex Mono', monospace; font-size:10.5px; margin-bottom:6px; display:block;}
+
+  .actions{padding:40px 0 64px; display:flex; gap:14px;}
+  .btn{
+    display:inline-block; padding:11px 18px; border-radius:var(--radius);
+    text-decoration:none; font-size:14px; font-weight:500;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-secondary{border:1px solid var(--line); color:var(--ink);}
+
+  footer{padding:24px 0 32px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft);
+    display:flex; justify-content:space-between; max-width:720px; margin:0 auto; padding-left:32px; padding-right:32px;}
+
+  @media (max-width:600px){
+    .spec-row{grid-template-columns:1fr;}
+    .spec-row .term{padding-top:0;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wordmark"><span class="dot"></span>cohort<span style="color:var(--ink-soft)">.reviews</span></div>
+</nav>
+
+<div class="content">
+
+  <div class="hero">
+    <h1>Cohort is a review platform.</h1>
+    <p>Members write reviews, read them in full, and reply directly to their authors.</p>
+  </div>
+
+  <div class="specs">
+
+    <div class="spec-row">
+      <div class="term">entries</div>
+      <div class="def">
+        <h3>No length limit. No format limit.</h3>
+        <p>Text, photos, video. Written once, or extended later — an entry keeps its history rather than resetting.</p>
+        <p>A single object can carry more than one independent entry.</p>
+      </div>
+    </div>
+
+    <div class="spec-row">
+      <div class="term">interaction</div>
+      <div class="def">
+        <h3>Replies are attached to the entry, not to a separate thread.</h3>
+        <p>Any member can reply to an entry. The author can reply back.</p>
+        <div class="example">
+          <span class="who">entry — running shoes, size 49.5, 8 months</span>
+          "Sole held up fine, toe box felt tight from day one."<br><br>
+          <span class="who">reply</span>
+          "Same size — did you size up, or return them?"<br><br>
+          <span class="who">reply from author</span>
+          "Sized up half a size. Still using them, 3 months on."
+        </div>
+      </div>
+    </div>
+
+    <div class="spec-row">
+      <div class="term">granularity</div>
+      <div class="def">
+        <h3>An entry can target a business, or a specific person within it.</h3>
+        <p>The two are recorded separately.</p>
+      </div>
+    </div>
+
+    <div class="spec-row">
+      <div class="term">membership</div>
+      <div class="def">
+        <h3>€2/month.</h3>
+        <p>Required to write, to read entries in full, and to reply. No advertising.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <a class="btn btn-primary" href="#">Write a review</a>
+    <a class="btn btn-secondary" href="#">Read reviews</a>
+  </div>
+
+</div>
+
+<footer>
+  <span>cohort.reviews</span>
+  <span>Draft v6</span>
+</footer>
+
+</body>
+</html>
