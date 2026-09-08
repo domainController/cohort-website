@@ -9,9 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper: #F6F5F2; --ink: #16201D; --ink-soft: #4A524F;
-    --line: #D8D4CB; --signal: #0E9C82; --signal-dark: #0B6E5C;
-    --accent-yellow: #F2B705; --accent-coral: #E8623A;
+    --paper: #F6F5F2; --ink: #1E2422; --ink-soft: #4A524F;
+    --line: #D8D4CB; --accent: #3E6B62; --accent-soft: #6E9089;
     --radius: 6px;
   }
   *{box-sizing:border-box;}
@@ -27,29 +26,29 @@
     padding:16px 32px; position:sticky; top:0; z-index:10;
   }
   .nav-inner{max-width:720px; margin:0 auto; display:flex; align-items:center; justify-content:space-between;}
-  .wordmark{font-family:'IBM Plex Mono', monospace; font-size:14px; font-weight:500;
-    display:flex; align-items:center; gap:8px;}
-  .wordmark .dot{width:7px;height:7px;border-radius:50%;background:var(--signal);display:inline-block;}
-  .navlinks{display:flex; gap:22px; font-size:13.5px; color:#C9CFCC;}
+  .wordmark-group{display:flex; align-items:center; gap:9px;}
+  .wordmark{width:8px;height:8px;border-radius:50%;background:var(--accent-soft); flex-shrink:0;}
+  .brand{font-family:'IBM Plex Mono', monospace; font-size:14px; font-weight:500;}
+  .navlinks{display:flex; gap:22px; font-size:13.5px; color:#A9B0AD;}
   .navlinks a{text-decoration:none;}
   .navlinks a:hover{color:var(--paper);}
   .nav-cta{
-    font-size:13px; padding:8px 14px; background:var(--signal); color:var(--ink);
-    border-radius:var(--radius); text-decoration:none; font-weight:600;
+    font-size:13px; padding:8px 14px; border:1px solid rgba(246,245,242,0.35); color:var(--paper);
+    border-radius:var(--radius); text-decoration:none; font-weight:500;
   }
 
   .content{max-width:720px; margin:0 auto; padding:0 32px;}
 
   .hero{padding:64px 0 16px;}
   .hero h1{
-    font-family:'Source Serif 4', serif; font-weight:600; font-size:38px;
-    line-height:1.2; margin:0 0 20px; letter-spacing:-0.015em;
+    font-family:'Source Serif 4', serif; font-weight:600; font-size:36px;
+    line-height:1.22; margin:0 0 24px; letter-spacing:-0.015em;
   }
-  .hero p{font-size:16.5px; color:var(--ink-soft); margin:0 0 12px; max-width:52ch;}
+  .hero p{font-size:16.5px; color:var(--ink-soft); margin:0 0 12px; max-width:54ch;}
   .hero p:last-child{margin-bottom:0;}
   .hero .noads{
     display:inline-block; margin-top:6px; font-family:'IBM Plex Mono', monospace;
-    font-size:12px; color:var(--signal-dark); background:rgba(14,156,130,0.1);
+    font-size:12px; color:var(--accent); background:rgba(62,107,98,0.08);
     padding:4px 10px; border-radius:20px;
   }
 
@@ -57,15 +56,19 @@
     margin:32px 0 8px; padding:22px 24px; border-radius:var(--radius);
     background:var(--ink); color:var(--paper);
   }
-  .beta-note .tag{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--accent-yellow); display:block; margin-bottom:10px; letter-spacing:0.03em;}
-  .beta-note p{font-size:13.5px; color:#C9CFCC; margin:0 0 14px;}
+  .beta-note .tag{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--accent-soft); display:block; margin-bottom:10px; letter-spacing:0.03em;}
+  .beta-note p{font-size:13.5px; color:#A9B0AD; margin:0 0 14px;}
   .beta-note p:last-child{margin-bottom:0;}
   .beta-note .niches{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0;}
-  .beta-note .niche{font-size:13px; background:rgba(255,255,255,0.06); padding:12px 14px; border-radius:4px;}
-  .beta-note .niche .h{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--signal); display:block; margin-bottom:6px;}
-  .beta-note .niche .i{color:#C9CFCC;}
+  .beta-note .niche{font-size:13px; background:rgba(255,255,255,0.05); padding:12px 14px; border-radius:4px;}
+  .beta-note .niche .h{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--accent-soft); display:block; margin-bottom:6px;}
+  .beta-note .niche .i{color:#A9B0AD;}
 
   article{padding:52px 0; border-top:1px solid var(--line);}
+  article .kicker{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--accent);
+    display:block; margin-bottom:10px; letter-spacing:0.03em;
+  }
   article h2{
     font-family:'Source Serif 4', serif; font-weight:600; font-size:23px; margin:0 0 18px;
   }
@@ -74,43 +77,63 @@
   article p strong{color:var(--ink); font-weight:600;}
 
   .modes{display:flex; flex-direction:column; gap:14px; margin:20px 0;}
-  .mode{border-radius:var(--radius); padding:16px 18px; border:1px solid var(--line);}
+  .mode{border-radius:var(--radius); padding:16px 18px; border:1px solid var(--line); border-left-width:3px;}
   .mode .badge{
     display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:10.5px;
     font-weight:500; padding:3px 10px; border-radius:20px; margin-bottom:10px;
+    background:rgba(62,107,98,0.08); color:var(--accent);
   }
-  .mode.retro .badge{background:rgba(232,98,58,0.12); color:var(--accent-coral);}
-  .mode.journal .badge{background:rgba(242,183,5,0.15); color:#92700A;}
-  .mode.version .badge{background:rgba(14,156,130,0.12); color:var(--signal-dark);}
+  .mode.retro{border-left-color:var(--accent);}
+  .mode.journal{border-left-color:var(--accent-soft);}
+  .mode.version{border-left-color:var(--line);}
   .mode p{font-size:14px; margin:0 0 8px;}
   .mode .ex{font-size:13px; color:var(--ink); font-style:italic; margin:0;}
 
-  .diagram{margin:22px 0; padding:24px; background:rgba(14,156,130,0.05); border:1px solid var(--line); border-radius:var(--radius);}
+  .diagram{margin:22px 0; padding:24px; background:rgba(62,107,98,0.04); border:1px solid var(--line); border-radius:var(--radius);}
   .diagram svg{width:100%; height:auto; display:block; max-width:400px; margin:0 auto;}
   .diagram-note{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:12px; font-family:'IBM Plex Mono', monospace;}
 
   .example{
     margin:16px 0; padding:16px 18px; background:rgba(0,0,0,0.025);
-    border-left:3px solid var(--signal); border-radius:0 4px 4px 0; font-size:13.5px; color:var(--ink-soft);
+    border-left:3px solid var(--accent); border-radius:0 4px 4px 0; font-size:13.5px; color:var(--ink-soft);
   }
   .example .who{font-family:'IBM Plex Mono', monospace; font-size:10px; margin-bottom:6px; display:block; color:var(--ink);}
 
   .boundary{
     margin-top:16px; font-size:13px; color:var(--ink-soft);
-    border-left:3px solid var(--accent-coral); padding:10px 14px;
-    background:rgba(232,98,58,0.05); border-radius:0 4px 4px 0;
+    border-left:3px solid var(--ink-soft); padding:10px 14px;
+    background:rgba(0,0,0,0.02); border-radius:0 4px 4px 0;
   }
 
-  .actions{padding:44px 0 64px; display:flex; gap:14px;}
+  .signup-form{
+    margin-top:8px; padding:26px 26px; border:1px solid var(--line); border-radius:var(--radius);
+    background:rgba(62,107,98,0.04);
+  }
+  .signup-form .tag{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--accent); display:block; margin-bottom:16px;}
+  .signup-form .field{margin-bottom:14px;}
+  .signup-form label{display:block; font-size:12px; color:var(--ink-soft); margin-bottom:6px; font-family:'IBM Plex Mono', monospace;}
+  .signup-form input{
+    width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:4px;
+    background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans', sans-serif; font-size:14px;
+  }
+  .signup-form input::placeholder{color:#9AA19E;}
+  .signup-form .more{font-size:12.5px; color:var(--ink-soft); font-style:italic; margin:14px 0 18px;}
+  .signup-form .submit{
+    display:inline-block; padding:11px 20px; background:var(--ink); color:var(--paper);
+    border-radius:var(--radius); font-size:14px; font-weight:600; border:none; cursor:default;
+  }
+  .signup-form .note{font-size:12.5px; color:var(--ink-soft); margin-top:14px;}
+
+  .actions{padding:36px 0 64px; display:flex; gap:14px;}
   .btn{
     display:inline-block; padding:12px 20px; border-radius:var(--radius);
     text-decoration:none; font-size:14.5px; font-weight:600;
   }
-  .btn-primary{background:var(--signal); color:var(--ink);}
+  .btn-primary{background:var(--ink); color:var(--paper);}
   .btn-secondary{border:1px solid var(--line); color:var(--ink);}
 
   footer{padding:28px 0 36px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink-soft);
-    display:flex; justify-content:space-between; max-width:720px; margin:0 auto; padding-left:32px; padding-right:32px;}
+    text-align:right; max-width:720px; margin:0 auto; padding-left:32px; padding-right:32px;}
 
   @media (max-width:600px){
     .beta-note .niches{grid-template-columns:1fr;}
@@ -122,11 +145,11 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="wordmark"><span class="dot"></span>cohort.reviews</div>
+    <div class="wordmark-group"><div class="wordmark"></div><span class="brand">Cohort</span></div>
     <div class="navlinks">
-      <a href="#writing">How reviews work</a>
-      <a href="#granularity">Businesses &amp; people</a>
-      <a href="#ask">Ask a reviewer</a>
+      <a href="#writing">Products</a>
+      <a href="#granularity">Services</a>
+      <a href="#ask">Interaction</a>
     </div>
     <a class="nav-cta" href="#">Write a review</a>
   </div>
@@ -135,8 +158,10 @@
 <div class="content">
 
   <div class="hero">
-    <h1>In-depth, long-term reviews.</h1>
-    <p>You write about the things you own and the services you use. Come back and add to what you wrote later. Ask the person who wrote an entry directly, and they can answer.</p>
+    <h1>In-depth &amp; long-term reviews for products and services.</h1>
+    <p>You write about gear you've had for years — the sleeping bag the brand discontinued, or the one they've never changed, because it still works.</p>
+    <p>The same goes the day you buy something new: you come back the moment something happens — a zipper failing in week two, or a seam still holding after a storm it shouldn't have survived.</p>
+    <p>Ask the person who wrote a review for buying advice, and they can answer directly.</p>
     <span class="noads">no advertising</span>
 
     <div class="beta-note">
@@ -156,19 +181,20 @@
   </div>
 
   <article id="writing">
+    <span class="kicker">products</span>
     <h2>Writing a review</h2>
-    <p>There's no length limit on an entry as a whole, and no fixed format — text, photos, video. It works the same whether you bought something two weeks ago or you've had it for twenty years, receipt long gone. That's the part that doesn't really exist elsewhere: most review sites assume you just bought the thing.</p>
+    <p>Each review allows up to 3,000 characters per field — text, photos, video, no fixed format.</p>
 
     <div class="modes">
       <div class="mode retro">
         <span class="badge">retrospective</span>
-        <p>Something you've had a long time. One thorough entry, written now, drawing on years of use — durability, quality, everything that only shows up over time.</p>
+        <p>Something you've had a long time. One thorough review, written now, drawing on years of use — durability, quality, everything that only shows up over time.</p>
         <p class="ex">"Had this hammock 8 years. Still holding — here's everything that's worn, and everything that hasn't."</p>
       </div>
       <div class="mode journal">
         <span class="badge">journaling</span>
         <p>Something recent, or in active use right now. Short, dated notes added as things happen, rather than one long write-up.</p>
-        <p class="ex">"Bought this hammock 15 days ago. Comfortable so far — the attachment straps feel flimsy though."</p>
+        <p class="ex">"Bought this hammock 15 days ago. Day 4: noticed a seam starting to fray already."</p>
       </div>
       <div class="mode version">
         <span class="badge">versioning</span>
@@ -179,46 +205,36 @@
   </article>
 
   <article id="granularity">
+    <span class="kicker">services</span>
     <h2>A business, or a person there</h2>
-    <p>A garage, a shop, a relay counter usually isn't uniformly good or bad — it's rarely everyone's fault, or everyone's credit. You can write an entry about the business as a whole, and separately, about a specific person you dealt with there.</p>
+    <p>A service isn't something you own, so there's nothing to be retrospective about in the same way — but journaling works just as well here, sometimes better. A dispute with a business is often a sequence, not a single moment.</p>
+    <p>You can write a review about the business as a whole, and separately, about a specific person there — whether that's the owner or someone who works for them.</p>
     <div class="diagram">
       <svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg">
         <rect x="10" y="12" width="185" height="46" rx="4" fill="none" stroke="#4A524F" stroke-width="1.3"/>
-        <text x="102" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#16201D">the business</text>
-        <rect x="225" y="12" width="185" height="46" rx="4" fill="none" stroke="#0E9C82" stroke-width="1.3"/>
-        <text x="317" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#16201D">a person there</text>
+        <text x="102" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1E2422">legal entity</text>
+        <rect x="225" y="12" width="185" height="46" rx="4" fill="none" stroke="#3E6B62" stroke-width="1.3"/>
+        <text x="317" y="40" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1E2422">an individual</text>
         <text x="210" y="90" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#4A524F">recorded separately</text>
       </svg>
     </div>
     <div class="example">
-      <span class="who">example</span>
+      <span class="who">journaling — a dispute with a business</span>
+      "Day 1: charged twice for the same repair. Day 3: called, was told the owner would call back. Day 9: owner called, said he'd refund it. Day 14: never refunded. Day 20: refunded in full, no explanation."
+    </div>
+    <div class="example">
+      <span class="who">example — a person there</span>
       "The garage overcharged me on parts. Ask for Karim if you go — he's the one who actually knows what he's doing."
     </div>
     <div class="boundary">First name only. No photos, no last names. Enough to point someone in the right direction — not enough to identify or target an individual.</div>
   </article>
 
   <article id="ask">
-    <h2>Talking to a reviewer</h2>
-    <p>Whichever kind of entry you're reading — a product, a business, or a specific person there — you can ask the reviewer who wrote it. For now, that exchange stays between the two of you; it isn't opened up into a wider public thread.</p>
-    <div class="diagram">
-      <svg viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg">
-        <rect x="10" y="15" width="150" height="46" rx="4" fill="none" stroke="#4A524F" stroke-width="1.3"/>
-        <text x="85" y="43" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#16201D">reader</text>
-        <rect x="260" y="15" width="150" height="46" rx="4" fill="none" stroke="#0E9C82" stroke-width="1.3"/>
-        <text x="335" y="43" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#16201D">reviewer</text>
-        <line x1="160" y1="30" x2="258" y2="30" stroke="#4A524F" stroke-width="1.2" marker-end="url(#arrow1)"/>
-        <text x="209" y="20" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="10.5" fill="#4A524F">asks</text>
-        <line x1="258" y1="48" x2="160" y2="48" stroke="#0E9C82" stroke-width="1.2" marker-end="url(#arrow2)"/>
-        <text x="209" y="66" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="10.5" fill="#0E9C82">replies</text>
-        <defs>
-          <marker id="arrow1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#4A524F"/></marker>
-          <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#0E9C82"/></marker>
-        </defs>
-      </svg>
-      <div class="diagram-note">reader ↔ reviewer — no wider thread yet</div>
-    </div>
+    <span class="kicker">interaction</span>
+    <h2>Ask advice</h2>
+    <p>Whichever kind of review you're reading — a product, a business, or a person there — you can ask the reviewer who wrote it: for buying advice, or anything the review didn't cover. For now, that exchange stays between the two of you — it isn't opened up into a wider public thread.</p>
     <div class="example">
-      <span class="who">entry — running shoes, size 49.5, 8 months</span>
+      <span class="who">review — running shoes, size 49.5, 8 months</span>
       "Sole held up fine, toe box felt tight from day one."<br><br>
       <span class="who">reader asks</span>
       "Same size — did you size up, or return them?"<br><br>
@@ -229,19 +245,32 @@
 
   <article>
     <h2>Membership</h2>
-    <p>€2/month. It's what lets you write, read entries in full, and ask a reviewer directly. There's no advertising on Cohort, and there won't be.</p>
+    <p>€2/month. It's what lets you write, read reviews in full, and ask a reviewer directly. There's no advertising on Cohort, and there won't be.</p>
   </article>
 
-  <div class="actions">
-    <a class="btn btn-primary" href="#">Write a review</a>
-    <a class="btn btn-secondary" href="#">Read reviews</a>
+  <div class="signup-form">
+    <span class="tag">early access — what the form will actually ask</span>
+    <div class="field">
+      <label>contact</label>
+      <input type="text" placeholder="Phone or email" disabled>
+    </div>
+    <div class="field">
+      <label>age</label>
+      <input type="text" placeholder="e.g. 34" disabled>
+    </div>
+    <div class="field">
+      <label>top 5</label>
+      <input type="text" placeholder="The first 5 things you'd want to review" disabled>
+    </div>
+    <p class="more">A couple more questions may follow — this list isn't final.</p>
+    <button class="submit" disabled>Start your profile</button>
+    <p class="note">Your contact info is used only for account setup and password resets. Membership is &euro;2/month from day one, beta included &mdash; it's what filters for people who actually want this. Beyond that, we don't reach out; it's on you to come back. What you tell us here &mdash; what you'd want to review, what's missing &mdash; is what actually shapes what gets built next.</p>
   </div>
 
 </div>
 
 <footer>
-  <span>cohort.reviews</span>
-  <span>Draft v10</span>
+  <span>Draft v19</span>
 </footer>
 
 </body>
